@@ -1,0 +1,126 @@
+.contenedor-botonera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #0003;
+    border: 1px solid #0005;
+    z-index: 1000;
+    position: fixed;
+    top: 250px;
+    left: 650px;
+    background-color: white;
+    overflow: hidden;
+}
+.cont-contraseña{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tarjeta-contraseña{
+    width: 100%;
+    height: 75px;
+    border: 1px solid #0005;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    transition: letter-spacing .5s ease;
+}
+
+
+
+.cont-cantidad-caracteres, .cont-caracteres{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.cont-cantidad-caracteres > span {
+    width: 100px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.boton > img {
+    width: 50px;
+    height: 50px;
+}
+
+.cont-funciones {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.cont-funciones > button {
+    width: 50%;
+}
+.boton{
+    width: 100px;
+    height: 75px;
+    background-color: #4C53B5;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.boton.activo {
+    background-color: #6B72FF;
+}
+
+
+.boton:hover {
+    background-color: #6B72FF;
+}
+.boton-cerrar{
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    position: absolute; /* Posiciona el botón respecto al contenedor principal */
+    top: 5px; /* Distancia desde la parte superior */
+    right: 10px; /* Distancia desde la izquierda */
+    color: black;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Asegura que esté encima de otros elementos */
+}
+
+
+.contenedor-completa{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    gap: 25px;
+    padding: 30px 10px;
+    width: 450px;
+    justify-content: space-around;
+    box-shadow: 0 5px 10px #0003;
+    z-index: 1000;
+    background-color: white;
+}
+
+.cont-espacio {
+    height: 69px;
+    background-color: #4C53B5;
+    width: 100%;
+    box-shadow: 0 -3px 5px #0005, 0 3px 5px #0005;
+}

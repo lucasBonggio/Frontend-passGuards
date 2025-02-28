@@ -1,0 +1,35 @@
+.contenedor-pestanas {
+    display: flex;
+    flex-direction: row;
+    gap: 25px
+}
+
+.pestana {
+    background-color: #373C82; 
+    border-radius: 5px;
+    height: 75px;
+    cursor: pointer;
+    width: 175px;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 2px 1px rgba(55, 60, 130, .5);
+    
+}
+
+/* Hover específico para las pestañas */
+.pestana:hover {
+    background-color: #4C53B5;
+    box-shadow: 2px 3px 2px rgba(76, 83, 181, .5);
+    transform: translateX(5px);
+}
+
+.pestana img {
+    width: 25px;
+    transition: transform 0.3s ease;
+}
+
+.pestana img:hover {
+    transform: scale(1.5);
+}

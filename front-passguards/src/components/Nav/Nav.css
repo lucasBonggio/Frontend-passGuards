@@ -1,0 +1,26 @@
+
+.contenedor-nav-completo {
+  background-color: #4C53B5;
+  transition: all .3s ease;
+  width: 100vw;
+  height: 140px;
+  display: flex;
+  position: absolute;
+  z-index: 900;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  box-shadow: 2px 3px 2px #0005;
+}
+
+/* Estilo base del logo */
+.logo-principal {
+  width: 100px; /* Tamaño inicial del logo */
+  height: auto; /* Mantener la proporción del logo */
+  transition: transform 0.3s ease; /* Transición suave para el logo */
+}
+
+.contenedor-nav-completo:hover {
+  background-color: #373C82;
+}

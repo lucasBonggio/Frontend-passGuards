@@ -1,0 +1,87 @@
+.contenedor-ventana{
+    position: fixed;
+    right: 75px;
+    top: 185px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #0005;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 5px 10px #0003;
+    overflow: hidden;
+}
+
+.cont-contrasena{
+    width: 90%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #0005;
+    font-size: 1.5rem;
+    transition: letter-spacing .5s ease;
+}
+.cont-contrasena:hover {
+    letter-spacing: 10px;
+}
+
+.cont-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+}
+
+
+.input {
+    border: 1px solid #0005;
+    border-radius: 5px;
+    height: 75px;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.cont-botones{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.boton-añadir{
+    height: 75px;
+    width: 40%;
+    background-color: #4C53B5;
+    border: none;
+    border-radius: 5px;
+    transition: background-color .3s ease;
+    cursor: pointer;
+}
+
+.boton-añadir:hover{
+    background-color: #6B72FF;
+}
+.boton-añadir:last-child:hover{
+    background-color: #F52C2A;
+}
+
+.boton-añadir > img {
+    width: 50px;
+    height: auto;
+}
+
+
+.cont-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 50px
+}

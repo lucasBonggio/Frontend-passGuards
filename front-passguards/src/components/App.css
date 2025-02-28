@@ -1,0 +1,57 @@
+.pagina-principal{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-fondo {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10;
+    background-color: #4C74B5;
+}
+
+.fondo {
+    position: relative;
+    display: flex;
+}
+
+.fondo span {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    background-color: #2AB7F5;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 10px #2A78F5,
+        0 0 50px #2AB7F5,
+        0 0 100px #2AB7F5; /* Corregido: PX -> px */
+    animation-name: animate;
+    animation-duration: calc(250s / var(--i)); /* Duración calculada */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    top: calc(var(--i) * 5%); /* Posición vertical */
+    left: calc(var(--i) * 3%); /* Posición horizontal */
+}
+
+.fondo span:nth-child(even) {
+    box-shadow: 
+        0 0 10px #F52C2A44,
+        0 0 50px #F52C2A,
+        0 0 100px #F52C2A; /* Corregido: PX -> px */
+    background-color: #F52C2A;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+        
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        
+    }
+}

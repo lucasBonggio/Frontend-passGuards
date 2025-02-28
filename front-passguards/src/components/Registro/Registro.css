@@ -1,0 +1,97 @@
+.registro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 30px 10px;
+    width: 450px;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #0003;
+    border: 1px solid #0005;
+    z-index: 500;
+}
+
+.informacion-principal{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+
+input {
+    height: 50px;
+    border-radius: 5px;
+    padding: 5px;
+    width: 50%;
+    border: 1px solid #0005;
+    font-size: 1.1em;
+}
+
+.fechas-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.fechas-container > select {
+    height: 50px;
+    border: 1px solid #0005;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #0005;
+}
+.genero-container{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.genero-container > span {
+    border: 1px solid #0006;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 10px;
+    width: 33%;
+    justify-content: space-between;
+}
+.genero-container > span > input{
+    width: 15px;
+}
+
+.datos-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.input-datos {
+    width: 100%;
+}
+.boton-registro{
+    background-color: #91F263;
+    padding: 5px;
+    border-radius: 5px;
+    height: 50px;
+    width: 50%;
+    border: none;
+    box-shadow: 2px 4px 5px #0003;
+    font-size: 1.1em;
+    color: #576EF2;
+    cursor: pointer;
+}
+
+.logear{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+a{
+    text-decoration: none;
+    color: #576EF2;
+}
