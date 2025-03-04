@@ -55,3 +55,11 @@
         
     }
 }
+
+.contenedor-pagina{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: space-evenly;
+    width: 100%;
+}

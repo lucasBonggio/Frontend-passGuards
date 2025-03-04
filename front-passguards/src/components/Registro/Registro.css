@@ -1,15 +1,25 @@
+.contenedor-registro-completo{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+
+
 .registro-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
     padding: 30px 10px;
-    width: 450px;
     justify-content: space-around;
     border-radius: 5px;
-    box-shadow: 0 5px 10px #0003;
-    border: 1px solid #0005;
+    box-shadow: 4px 2px 2px #0005;
     z-index: 500;
+    background-color: #F0F2FA;
 }
 
 .informacion-principal{
@@ -27,6 +37,7 @@ input {
     width: 50%;
     border: 1px solid #0005;
     font-size: 1.1em;
+    background-color: #F0F2FA;
 }
 
 .fechas-container{
@@ -42,11 +53,13 @@ input {
     border-radius: 5px;
     font-size: 1.1em;
     color: #0005;
+    background-color: #F0F2FA;
 }
 .genero-container{
     display: flex;
     gap: 20px;
     width: 100%;
+    color: #0005;
 }
 
 .genero-container > span {
@@ -73,7 +86,7 @@ input {
     width: 100%;
 }
 .boton-registro{
-    background-color: #91F263;
+    background-color: #6EB54C;
     padding: 5px;
     border-radius: 5px;
     height: 50px;
@@ -81,7 +94,7 @@ input {
     border: none;
     box-shadow: 2px 4px 5px #0003;
     font-size: 1.1em;
-    color: #576EF2;
+    color: #000;
     cursor: pointer;
 }
 
@@ -94,4 +107,10 @@ input {
 a{
     text-decoration: none;
     color: #576EF2;
+}
+
+.titulo-registro{
+    color: #4C53B5;
+    font-size: 3rem;
+    margin: 25px;
 }

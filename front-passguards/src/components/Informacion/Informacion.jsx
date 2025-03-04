@@ -3,6 +3,8 @@ import './Informacion.css';
 import CuentaIndividual from '../Cuenta/Cuenta';
 import buscador from '../../img/lupa.svg';
 import candado from '../../img/candado.svg';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
 
 export default function Informacion() {
     const [cuentas, setCuentas] = useState([]);
@@ -16,12 +18,25 @@ export default function Informacion() {
 
 
     const solicitarCuentas = async () => {
+        // Obtener el token JWT del localStorage
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setError("Debes iniciar sesión para ver tus cuentas.");
+            return;
+        }
+    
         try {
-            const response = await fetch(`http://localhost:1234/api/auth/usuario/cuentas`);
+            const response = await fetch(`http://localhost:1234/api/auth/usuario/cuentas`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+    
             const data = await response.json();
-
-            if (data.usuario && Array.isArray(data.usuario.data)) {
-                setCuentas(data.usuario.data); // Usa el array dentro de `usuario.data`
+    
+            if (data.cuentas && Array.isArray(data.cuentas)) {
+                setCuentas(data.cuentas); // Actualiza el estado con las cuentas obtenidas
             } else {
                 console.error('La respuesta del servidor no tiene el formato esperado:', data);
             }
@@ -29,13 +44,12 @@ export default function Informacion() {
             console.error('Error al obtener las cuentas:', error);
         }
     };
-
     useEffect(() => {
         solicitarCuentas();
     }, []);
 
     const buscar = async () => {
-        
+
         try{
             if(!filtroSeleccionado){
                 alert('Debes seleccionar un Filtro');
@@ -53,17 +67,13 @@ export default function Informacion() {
                     url = `http://localhost:1234/api/auth/usuario/id/${valorBusqueda}`;
                     mensaje = "Id";
                     break;
-                case "nombre":
+                case "nombre_cuenta":
                     url = `http://localhost:1234/api/auth/usuario/nombre/${valorBusqueda}`;
                     mensaje = "Nombre";
                     break;
                 case "servicio":
                     url = `http://localhost:1234/api/auth/usuario/servicio/${valorBusqueda}`;
                     mensaje = "Servicio";
-                    break;
-                case "gmail":
-                    url = `http://localhost:1234/api/auth/usuario/gmail/${valorBusqueda}`;
-                    mensaje = 'Gmail';
                     break;
             }
             
@@ -77,9 +87,10 @@ export default function Informacion() {
 
             const data = await response.json();
             console.log("Respuesta del servidor:", data);
-            if (data.data && Array.isArray(data.data)) {
-                setCuentas(data.data); // Actualiza el estado con los resultados
+            if (data.usuario && Array.isArray(data.usuario)) {
+                setCuentas(data.usuario); // Actualiza el estado con los resultados
             } else {
+                console.log(data.usuario)
                 console.error('Respuesta del servidor no válida:', data);
                 alert(`No se encontraron resultados para ${mensaje}: "${valorBusqueda}".`);
                 setCuentas([]); // Limpia el estado si no hay resultados válidos
@@ -122,9 +133,8 @@ export default function Informacion() {
                                     onChange={(e) => setFiltroSeleccionado(e.target.value)}
                                 >
                                     <option value="">Filtros</option>
-                                    <option value="nombre">Nombre</option>
+                                    <option value="nombre_cuenta">Nombre</option>
                                     <option value="servicio">Servicio</option>
-                                    <option value="gmail">Gmail</option>
                                     <option value="id">Id</option>
                                 </select>
                             </div>
@@ -133,7 +143,7 @@ export default function Informacion() {
                             <div className="contenedor-cuentas-u">
                                 <div className="contenedor-cuentas">
                                     {cuentas.map((cuenta) => (
-                                        <CuentaIndividual key={cuenta.id} cuenta={cuenta} />
+                                        <CuentaIndividual key={cuenta.id} cuenta={cuenta} setCuentas={setCuentas} />
                                     ))}
                                 </div>
                             </div>

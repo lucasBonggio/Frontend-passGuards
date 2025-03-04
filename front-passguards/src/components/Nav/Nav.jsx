@@ -7,7 +7,6 @@ export default function Nav(){
     return(
         <div className="contenedor-nav-completo">
             <Pestanas />
-            
         </div>
 
     )

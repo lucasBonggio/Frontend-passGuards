@@ -1,0 +1,28 @@
+.contenedor-presentacion {
+    box-shadow: 4px 2px 2px #0005;
+    border-radius: 5px;
+    padding: 25px;
+    width: 40%;
+    background-color: #F0F2FA;
+}
+
+.presentacion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+.contenedor-presentacion h3 {
+    font-size: 2rem;
+}
+
+.nombre-pass{
+    margin: 0;
+}
+
+.parrafo{
+    margin: 0;
+    margin-right: 150px;
+    line-height: 1.5;
+}
+

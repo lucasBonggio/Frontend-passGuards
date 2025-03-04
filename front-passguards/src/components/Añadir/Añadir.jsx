@@ -9,32 +9,54 @@ export default function Añadir({ contraseña, ventanaActiva, ventanaCerrada }) 
     if (!ventanaActiva) return null;
 
     // Estados para los campos de entrada
-    const [nombreUsuario, setNombreUsuario] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [nombreServicio, setNombreServicio] = React.useState("");
+    const [nombre_cuenta, setNombreCuenta] = React.useState("");
+    const [nombre_servicio, setNombreServicio] = React.useState("");
 
-    // Función para guardar la cuenta
     const guardarCuenta = async () => {
+    
+        // Validar que todos los campos estén completos
+        if (!nombre_cuenta || !nombre_servicio) {
+            setError("Todos los campos son obligatorios.");
+            return;
+        }
+    
+        // Obtener el token JWT del localStorage
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setError("Debes iniciar sesión para guardar una cuenta.");
+            return;
+        }
+    
         try {
-            // Validar que todos los campos estén completos
-            if (!nombreUsuario || !email || !nombreServicio) {
-                alert("Todos los campos son obligatorios.");
-                return;
+            // Enviar los datos al backend
+            const response = await fetch('http://localhost:1234/api/auth/usuario/cuenta', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`, // Incluir el token JWT
+                },
+                body: JSON.stringify({
+                    nombre_cuenta,
+                    nombre_servicio,
+                    contraseña,
+                }),
+            });
+    
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.message || 'Error desconocido');
             }
-
-            // Simula una solicitud al backend
-            console.log("Datos enviados:", { nombreUsuario, email, nombreServicio, contraseña });
-
+    
             // Limpiar los campos después de guardar
-            setNombreUsuario("");
-            setEmail("");
+            setNombreCuenta("");
             setNombreServicio("");
-
+    
             // Cerrar la ventana
             ventanaCerrada();
+    
+            alert("Cuenta guardada exitosamente.");
         } catch (error) {
-            console.error("Error al guardar la cuenta:", error);
-            alert("Hubo un error al guardar la cuenta. Inténtalo de nuevo.");
+            console.error("Error al guardar la cuenta:", error.message);
         }
     };
 
@@ -57,24 +79,17 @@ export default function Añadir({ contraseña, ventanaActiva, ventanaCerrada }) 
                 {/* Campos de entrada */}
                 <div className="cont-inputs">
                     <input
-                        className="input nombre-usuario"
+                        className="input nombreUsuario"
                         type="text"
                         placeholder="Nombre de usuario"
-                        value={nombreUsuario}
-                        onChange={(e) => setNombreUsuario(e.target.value)}
-                    />
-                    <input
-                        className="input correo"
-                        type="email"
-                        placeholder="Correo electrónico"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={nombre_cuenta}
+                        onChange={(e) => setNombreCuenta(e.target.value)}
                     />
                     <input
                         className="input servicio"
                         type="text"
                         placeholder="Servicio"
-                        value={nombreServicio}
+                        value={nombre_servicio}
                         onChange={(e) => setNombreServicio(e.target.value)}
                     />
                 </div>

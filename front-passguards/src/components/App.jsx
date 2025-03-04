@@ -7,6 +7,9 @@ import Pestanas from './Pestañas/Pestanas.jsx';
 import Inicio from './Inicio/Inicio.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import './App.css';
+import Perfil from './Perfil/Perfil.jsx';
+import NavLogin from './NavLogin/NavLogin.jsx';
+import Presentacion from './Presentacion/Presentacion.jsx';
 
 export default function App() {
     return (
@@ -14,11 +17,23 @@ export default function App() {
             {/* Sistema de rutas */}
             <Routes>
                 {/* Ruta pública para el login */}
-                <Route path="/login" element={<Login />} />
-
+                <Route path="/login" element={
+                    <>
+                        <NavLogin />
+                        <div className="contenedor-pagina">
+                            <Presentacion />
+                            <Login  />
+                        </div>
+                    </>
+                    
+                }/>
                 {/* Ruta pública para el registro */}
-                <Route path="/registro" element={<Registro />} />
-
+                <Route path="/registro" element={
+                    <>
+                        <NavLogin />
+                        <Registro />
+                    </>
+                }/>
                 {/* Ruta protegida para el inicio */}
                 <Route
                     path="/inicio"
@@ -31,7 +46,14 @@ export default function App() {
                         </PrivateRoute>
                     }
                 />
-
+                <Route path='/perfil' element={
+                    <PrivateRoute>
+                        <>
+                            <Nav />
+                            <Perfil />
+                        </>
+                    </PrivateRoute>
+                    }/>
                 {/* Ruta de error (404) */}
                 <Route path="*" element={<h2>Página no encontrada</h2>} />
             </Routes>

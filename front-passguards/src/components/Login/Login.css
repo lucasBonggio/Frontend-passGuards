@@ -17,10 +17,9 @@
     width: 450px;
     justify-content: space-around;
     border-radius: 5px;
-    box-shadow: 0 5px 10px #0003;
-    border: 1px solid #0005;
+    box-shadow: 4px 2px 2px #0005;
     z-index: 500;
-    background-color: white;
+    background-color: #F0F2FA;
 }
 
 .campos-container {
@@ -42,6 +41,7 @@
 
 .input-info {
     padding: 5px;
+    background-color: #F0F2FA;
 }
 .ingresar{
     transition: background-color .3s ease ;
@@ -55,19 +55,18 @@
     margin-top: 75px;
     background-color: #373C82;
     border: none;
+    color: #FAFAFC;
 }
 
 span {
     font-size: 1.1em;
 }
 
-a:visited{
-    color: #576EF2;
-}
-.registrarse{
+.registrarse {
     background-color: #6EB54C;
     margin-top: 0;
     justify-content: center;
     align-items: center;
     display: flex;
+    color: #000;
 }
